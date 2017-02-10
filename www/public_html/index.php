@@ -19,7 +19,7 @@ if (isset($_POST['WriteImage'])) {
         $DeviceList .= "of=/dev/" . $DeviceName . " ";
         
         //put device into variable for unmounting of drives
-        $UmountList .= "/usr/bin/umount /dev/" . $DeviceName . " & ";
+        $UmountList .= exec("which umount") . " /dev/" . $DeviceName . " & ";
         
     } //END create device list from checkbox array
     
@@ -62,6 +62,9 @@ if (isset($_POST['WriteImage'])) {
 	<title>Open Source Image Duplicator</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<meta http-equiv="Expires" content="0">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
 
 	<!-- Mobile Specific Metas
   ================================================== -->
